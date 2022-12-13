@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
+import { LoggerService } from 'src/lib/my-core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Hola mundo';
+
+  constructor(@Optional() log?: LoggerService) {
+    if (log) {
+      log.error('Esto es un error')
+      log.warn('Esto es un warn')
+      log.info('Esto es un info')
+      log.log('Esto es un log')
+    }
+  }
 }
