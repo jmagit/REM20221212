@@ -11,6 +11,7 @@ export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable | undefined;
 
   constructor(public vm: NotificationService) { }
+
   ngOnInit(): void {
     this.suscriptor = this.vm.Notificacion.subscribe(n => {
       if (n.Type !== NotificationType.error) { return; }
