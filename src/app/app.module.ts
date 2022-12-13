@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { CommonServicesModule } from './common-services';
 import { MainModule } from './main';
 import { SecurityModule } from './security';
+import { DemosComponent } from './demos/demos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemosComponent
   ],
   imports: [
     BrowserModule, FormsModule,
