@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CapitalizePipe } from '@my/core';
 import { Unsubscribable } from 'rxjs';
 import { NotificationService, NotificationType } from '../common-services';
 
@@ -52,8 +53,9 @@ export class DemosComponent implements OnInit, OnDestroy {
   }
 
   add(provincia: string) {
+    const pipe = new CapitalizePipe();
     const id = this.listado.length > 0 ? this.listado[this.listado.length - 1].id + 1 : 1
-    this.listado.push({id, nombre: provincia})
+    this.listado.push({id, nombre: pipe.transform(provincia)})
     this.idProvincia = id
   }
 
