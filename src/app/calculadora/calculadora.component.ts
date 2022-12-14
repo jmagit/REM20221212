@@ -80,15 +80,15 @@ export class CalculadoraComponent implements OnInit {
     } else if (this.miPantalla.indexOf('.') === -1) {
       this.miPantalla += '.';
     } else {
-      this.notify.add('Ya está la coma', NotificationType.warn)
-      // this.log.warn('Ya está la coma');
+      // this.notify.add('Ya está la coma', NotificationType.warn)
+      this.log.warn('Ya está la coma');
     }
   }
 
   borrar(): void {
     if (this.limpiar || this.miPantalla.length == 1 || (this.miPantalla.length == 2 && this.miPantalla.startsWith('-'))) {
       this.miPantalla = '0';
-      this.limpiar = true;
+      this.limpiar = false;
     } else
       this.miPantalla = this.miPantalla.substring(0, this.miPantalla.length - 1);
   }
@@ -126,22 +126,22 @@ export class CalculadoraComponent implements OnInit {
     this.miResumen = value == '=' ? '' : (`${this.acumulado} ${value}`);
     // Number: double-precision IEEE 754 floating point.
     // 9.9 + 1.3, 0.1 + 0.2, 1.0 - 0.9
-    // this.miPantalla = parseFloat(this.acumulado.toPrecision(15)).toString();
-    this.miPantalla = this.acumulado.toString();
+    this.miPantalla = parseFloat(this.acumulado.toPrecision(15)).toString();
+    // this.miPantalla = this.acumulado.toString();
     this.updated.emit(this.acumulado);
     this.operador = value;
     this.limpiar = true;
   }
 
   ngOnInit(): void {
-    if (this.init) {
-      this.ponOperando(this.init);
-    }
+    // if (this.init) {
+    //   this.ponOperando(this.init);
+    // }
   }
   ngOnChanges(_changes: SimpleChanges): void {
-    // if (this.init) {
-    //   this.ponOperando(this.init.toString());
-    // }
+    if (this.init) {
+      this.ponOperando(this.init.toString());
+    }
   }
 
 }
