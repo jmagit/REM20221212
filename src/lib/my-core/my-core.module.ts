@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SizerComponent } from './components/sizer.component';
 
 
 
 @NgModule({
-  declarations: [],
-  exports: [],
+  declarations: [ SizerComponent, ],
+  exports: [ SizerComponent, ],
   imports: [
     CommonModule
   ]
