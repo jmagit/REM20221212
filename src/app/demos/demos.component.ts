@@ -12,10 +12,10 @@ export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable | undefined;
   private nombre = 'mundo';
   listado = [
-    {id: 1, nombre: 'Madrid'},
-    {id: 2, nombre: 'barcelona'},
-    {id: 3, nombre: 'SEVILLA'},
-    {id: 4, nombre: 'ciudad Real'},
+    { id: 1, nombre: 'Madrid' },
+    { id: 2, nombre: 'barcelona' },
+    { id: 3, nombre: 'SEVILLA' },
+    { id: 4, nombre: 'ciudad Real' },
   ]
   idProvincia = 2
   fontSize = 24
@@ -28,7 +28,7 @@ export class DemosComponent implements OnInit, OnDestroy {
 
   get Nombre() { return this.nombre; }
   set Nombre(value: string) {
-    if(this.nombre === value) return
+    if (this.nombre === value) return
     this.nombre = value
   }
 
@@ -55,7 +55,7 @@ export class DemosComponent implements OnInit, OnDestroy {
   add(provincia: string) {
     const pipe = new CapitalizePipe();
     const id = this.listado.length > 0 ? this.listado[this.listado.length - 1].id + 1 : 1
-    this.listado.push({id, nombre: pipe.transform(provincia)})
+    this.listado.push({ id, nombre: pipe.transform(provincia) })
     this.idProvincia = id
   }
 
@@ -71,5 +71,23 @@ export class DemosComponent implements OnInit, OnDestroy {
       this.suscriptor.unsubscribe();
     }
   }
+
+  idiomas = [
+    { codigo: 'en-US', region: 'USA' },
+    { codigo: 'es', region: 'España' },
+    { codigo: 'pt', region: 'Portugal' },
+  ];
+  idioma = this.idiomas[0].codigo;
+  calculos: any[] = [];
+  valCalculadora = 666;
+
+  ponResultado(origen: string, valor: any) {
+    this.calculos.push({
+      pos: this.calculos.length + 1,
+      origen,
+      valor
+    });
+  }
+
 
 }

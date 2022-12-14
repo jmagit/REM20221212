@@ -1,4 +1,9 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { DATE_PIPE_DEFAULT_OPTIONS, NgOptimizedImage, registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import localeEsExtra from '@angular/common/locales/extra/es';
+registerLocaleData(localeEs, 'es', localeEsExtra);
+
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
@@ -12,6 +17,7 @@ import { SecurityModule } from './security';
 import { DemosComponent } from './demos/demos.component';
 import GraficoSvgComponent from './grafico-svg/grafico-svg.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,7 @@ import { DinamicoComponent } from './dinamico/dinamico.component';
     DemosComponent,
     GraficoSvgComponent,
     DinamicoComponent,
+    CalculadoraComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
