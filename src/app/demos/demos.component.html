@@ -10,8 +10,8 @@
     <input type="button" value="Info" (click)="vm.add('Solo una notificación informativa', vm.NotificationType.info)">
     <input type="button" value="Log" (click)="vm.add('Para trazar con notificaciones', vm.NotificationType.log)">
 </p>
-<output [textContent]="resultado">Esto se pierde</output>
-<output [innerHTML]="resultado">Esto se pierde</output>
+<p><output [textContent]="resultado">Esto se pierde</output></p>
+<p><output [innerHTML]="resultado">Esto se pierde</output></p>
 
 <div [hidden]="!visible">Ahora me ves</div>
 <div *ngIf="visible">Ahora existo</div>
