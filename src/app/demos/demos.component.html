@@ -38,5 +38,6 @@
     <input type="text" value="Tabarnia" #txtProvincia >
     <input type="button" value="add" (click)="add(txtProvincia.value)">
 </p>
-
-<p>{{listado | json}}</p>
+<my-sizer (sizeChange)="fontSize=$event"></my-sizer>
+<p [style.font-size.px]="fontSize">{{listado | json}}</p>
+<app-grafico-svg></app-grafico-svg>

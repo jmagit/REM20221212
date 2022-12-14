@@ -10,11 +10,15 @@ import { CommonServicesModule } from './common-services';
 import { MainModule } from './main';
 import { SecurityModule } from './security';
 import { DemosComponent } from './demos/demos.component';
+import GraficoSvgComponent from './grafico-svg/grafico-svg.component';
+import { DinamicoComponent } from './dinamico/dinamico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemosComponent
+    DemosComponent,
+    GraficoSvgComponent,
+    DinamicoComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
