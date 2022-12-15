@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { NotificationService, NotificationType } from '../common-services';
+import { AUTH_REQUIRED } from '../security';
 
 @Injectable({ providedIn: 'root' })
 export class PersonasViewModel {
@@ -11,13 +12,18 @@ export class PersonasViewModel {
   constructor(private http: HttpClient, private notify: NotificationService) { }
 
   load() {
-    this.http.get(`http://localhost:4321/api/personas/${this.elemento.id}`).subscribe({
+    const peticion = this.http.get(`http://localhost:4321/api/personas/${this.elemento.id}`, {
+      context: new HttpContext().set(AUTH_REQUIRED, true),
+    });
+    // ...
+    peticion.subscribe({
       next: data => {
         this.modoAdd = false;
         this.elemento = data
       },
       error: err => this.notify.add(JSON.stringify(err))
     })
+    // this.notify.add("Sigo")
     // this.modoAdd = false;
     // this.elemento = { id: 1, nombre: 'Pepito', apellidos: 'Grillo', edad: 99, nif: '12345678z', correo: 'pepito@grillo' }
 
