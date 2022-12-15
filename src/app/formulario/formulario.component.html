@@ -17,17 +17,19 @@
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" [(ngModel)]="VM.elemento.nombre" #nombre="ngModel" required
       maxlength="10" minlength="3">
-    <output class="error" [hidden]="!nombre.errors?.['required']">Es obligatorio</output>
+    <!-- <output class="error" [hidden]="!nombre.errors?.['required']">Es obligatorio</output>
     <output class="error" [hidden]="!nombre.hasError('maxlength') && !nombre.hasError('minlength')">Debe tener entre 2 y
-      10 caracteres</output>
+      10 caracteres</output> -->
+    <output class="error" [hidden]="nombre.valid">{{ nombre.errors | errormsg }}</output>
     <br>
     <label for="apellidos">Apellidos:</label>
     <input type="text" id="apellidos" name="apellidos" [(ngModel)]="VM.elemento.apellidos" #apellidos="ngModel"
-      maxlength="10" minlength="3">
+      maxlength="10" minlength="3" mayusculas>
     <output class="error" [hidden]="!apellidos.hasError('minlength')">Debe tener como mínimo
       {{apellidos.errors?.['minlength']?.requiredLength}} caracteres</output>
     <output class="error" [hidden]="!apellidos.hasError('maxlength')">Debe tener como máximo
       {{apellidos.errors?.['maxlength']?.requiredLength}} caracteres</output>
+    <output class="error" [hidden]="!apellidos.errors?.['mayusculas']">{{apellidos.errors?.['mayusculas']}}</output>
     <br>
     <label for="edad">Edad:</label>
     <input type="number" id="edad" name="edad" [(ngModel)]="VM.elemento.edad" #edad="ngModel" min="16" max="67">
@@ -35,8 +37,15 @@
       10 caracteres</output>
     <br>
     <label for="nif">NIF: </label>
-    <input type="text" id="nif" name="nif" [(ngModel)]="VM.elemento.nif" #nif="ngModel" pattern="^\d{1,8}[A-Z]$">
-    <output class="error" [hidden]="!nif.errors?.['pattern']">No tiene el formato del nif</output>
+    <input type="text" id="nif" name="nif" [(ngModel)]="VM.elemento.nif" #nif="ngModel"
+      nif><!-- pattern="^\d{1,8}[A-Z]$" -->
+    <output class="error" [hidden]="!nif.errors?.['nif']">{{nif.errors?.['nif']?.message}}</output>
+    <!-- <output class="error" [hidden]="!nif.errors?.['pattern']">No tiene el formato del nif</output> -->
+    <br>
+    <label for="email">Correo: </label>
+    <input type="email" id="email" name="email" [(ngModel)]="VM.elemento.email" #email="ngModel">
+    <!-- <output class="error" [hidden]="email.valid">No tiene el formato del email</output> -->
+    <output class="error" [hidden]="!email.errors?.['type']">{{email.errors?.['type']}}</output>
   </p>
   <p>
     <input type="button" value="Enviar" (click)="VM.send()" [disabled]="miForm.invalid">

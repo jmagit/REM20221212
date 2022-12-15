@@ -8,7 +8,7 @@ export class PersonasViewModel {
 
   load() {
     this.modoAdd = false;
-    this.elemento = { id: 1, nombre: 'Pepitooooooooooooo', apellidos: 'Grillo', edad: 99, nif: '12345678z' }
+    this.elemento = { id: 1, nombre: 'Pepito', apellidos: 'Grillo', edad: 99, nif: '12345678z', email: 'pepito@grillo' }
   }
   add() {
     this.modoAdd = true;
