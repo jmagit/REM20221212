@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CalculadoraComponent } from '../calculadora/calculadora.component';
 import { DemosComponent } from '../demos/demos.component';
+import { FormularioComponent } from '../formulario/formulario.component';
 import GraficoSvgComponent from '../grafico-svg/grafico-svg.component';
 import { HomeComponent } from '../main/home/home.component';
 
@@ -11,8 +12,9 @@ import { HomeComponent } from '../main/home/home.component';
 })
 export class DinamicoComponent {
   menu = [
-    { title: 'Demos', icon: 'fa-solid fa-chalkboard-user', component: DemosComponent},
+    { title: 'Formulario', icon: 'fa-solid fa-chalkboard-user', component: FormularioComponent},
     { title: 'Home', icon: 'fa-solid fa-house', component: HomeComponent},
+    { title: 'Demos', icon: 'fa-solid fa-chalkboard-user', component: DemosComponent},
     { title: 'Gráfico', icon: 'fa-regular fa-image', component: GraficoSvgComponent},
     { title: 'Calculadora', icon: 'fa-solid fa-calculator', component: CalculadoraComponent},
   ]
