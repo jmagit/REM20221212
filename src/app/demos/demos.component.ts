@@ -1,12 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CapitalizePipe } from '@my/core';
+import { CapitalizePipe, LoggerService } from '@my/core';
 import { Unsubscribable } from 'rxjs';
 import { NotificationService, NotificationType } from '../common-services';
 
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
-  styleUrls: ['./demos.component.css']
+  styleUrls: ['./demos.component.css'],
+  providers: [ NotificationService ],
 })
 export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable | undefined;
@@ -24,7 +25,7 @@ export class DemosComponent implements OnInit, OnDestroy {
   visible = true
   estetica = { importante: true, error: false, urgente: true }
 
-  constructor(public vm: NotificationService) { }
+  constructor(public vm: NotificationService, public out: LoggerService) { }
 
   get Nombre() { return this.nombre; }
   set Nombre(value: string) {
@@ -67,6 +68,7 @@ export class DemosComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy(): void {
+    this.out.log('ngOnDestroy')
     if (this.suscriptor) {
       this.suscriptor.unsubscribe();
     }
