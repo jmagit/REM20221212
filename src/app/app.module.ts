@@ -19,6 +19,7 @@ import GraficoSvgComponent from './grafico-svg/grafico-svg.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     FormularioComponent,
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MainModule, CommonServicesModule, SecurityModule, MyCoreModule,
   ],
   providers: [
