@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     //   log.log('Esto es un log')
     // }
   }
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
     // this.notify.add('Ya me he inicializado', NotificationType.info)
   }

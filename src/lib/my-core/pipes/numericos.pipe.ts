@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'toComaDecimal'
 })
 export class ToComaDecimalPipe implements PipeTransform {
-  transform(value: any, args?: any): any {
+  transform(value: number | string): string {
     if (typeof (value) === 'number') {
       value = value.toString();
     }

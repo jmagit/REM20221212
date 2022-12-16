@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/directive-selector */
 import { Directive, ElementRef, forwardRef } from '@angular/core';
 import { ValidatorFn, AbstractControl, NG_VALIDATORS, Validator, ValidationErrors } from '@angular/forms';
 
@@ -25,7 +26,7 @@ export class NIFValidatorDirective implements Validator {
 }
 
 export function MayusculasValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
+  return (control: AbstractControl): { [key: string]: string } | null => {
       if (!control.value) { return null; }
       const err = { mayusculas: 'No está en mayúsculas' };
       return control.value === control.value.toUpperCase() ? null : err;

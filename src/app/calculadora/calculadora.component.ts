@@ -133,6 +133,7 @@ export class CalculadoraComponent implements OnInit {
     this.limpiar = true;
   }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
     // if (this.init) {
     //   this.ponOperando(this.init);

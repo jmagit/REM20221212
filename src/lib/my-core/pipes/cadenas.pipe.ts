@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'elipsis'
 })
 export class ElipsisPipe implements PipeTransform {
-  transform(value: any, maxlen: number): any {
+  transform(value: string, maxlen: number): string {
     return (!maxlen || maxlen < 2 || !value || value.length <= maxlen) ? value : (value.substr(0, maxlen - 1) + '\u2026');
   }
 }
@@ -13,7 +13,7 @@ export class ElipsisPipe implements PipeTransform {
   name: 'capitalize'
 })
 export class CapitalizePipe implements PipeTransform {
-  transform(value: any, args?: any): any {
+  transform(value: string): string {
     return value?.charAt(0)?.toUpperCase() + value?.substring(1)?.toLowerCase();
   }
 }
@@ -21,7 +21,7 @@ export class CapitalizePipe implements PipeTransform {
 @Pipe({name: 'striptags'})
 export class StripTagsPipe implements PipeTransform {
 
-  transform(text: string, ...allowedTags: any[]): string {
+  transform(text: string, ...allowedTags: string[]): string {
     const etiquetas = `(?:.|\\s)*?`
     return allowedTags.length > 0
       ? text.replace(new RegExp(`<(?!\\/?(${allowedTags.join('|')})\\s*\\/?)[^>]+>`, 'g'), '')
@@ -33,9 +33,9 @@ export class StripTagsPipe implements PipeTransform {
   name: 'errormsg'
 })
 export class ErrorMessagePipe implements PipeTransform {
-  transform(value: any): any {
+  transform(value: any): string {
     if (!value) {
-      return;
+      return '';
     }
     let msg = '';
     for (const err in value) {

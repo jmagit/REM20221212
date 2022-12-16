@@ -25,8 +25,4 @@ describe('ToComaDecimalPipe', () => {
     const pipe = new ToComaDecimalPipe();
     expect(pipe.transform(1.5)).toBe('1,5');
   });
-  it('Objeto', () => {
-    const pipe = new ToComaDecimalPipe();
-    expect(pipe.transform({})).toEqual({});
-  });
 });
