@@ -15,19 +15,18 @@ import { CommonServicesModule } from './common-services';
 import { MainModule } from './main';
 import { AuthInterceptor, SecurityModule } from './security';
 import { DemosComponent } from './demos/demos.component';
-import GraficoSvgComponent from './grafico-svg/grafico-svg.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AjaxWaitInterceptor } from './main/ajax-wait';
 import { ContactosModule } from './contactos';
+import GraficoSvgComponent from './grafico-svg/grafico-svg.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemosComponent,
-    GraficoSvgComponent,
     DinamicoComponent,
     CalculadoraComponent,
     FormularioComponent,
@@ -36,6 +35,7 @@ import { ContactosModule } from './contactos';
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MainModule, CommonServicesModule, SecurityModule, MyCoreModule,
     ContactosModule,
+    GraficoSvgComponent,
   ],
   providers: [
     LoggerService,

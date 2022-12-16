@@ -1,8 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-grafico-svg',
   templateUrl: './grafico-svg.component.svg',
+  standalone: true,
+  imports: [ CommonModule ]
 })
 export default class GraficoSvgComponent {
   fillColor = 'rgb(255, 0, 0)';
