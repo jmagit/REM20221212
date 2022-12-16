@@ -2,16 +2,16 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ContactosViewModelService } from './servicios.service';
+import { LibrosViewModelService } from './servicios.service';
 
 @Component({
-  selector: 'app-contactos',
+  selector: 'app-libros',
   templateUrl: './tmpl-anfitrion.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosComponent implements OnInit, OnDestroy {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
     // this.vm.list();
     this.vm.load()
@@ -20,57 +20,57 @@ export class ContactosComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-contactos-list',
+  selector: 'app-libros-list',
   templateUrl: './tmpl-list.sin-rutas.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosListComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosListComponent implements OnInit, OnDestroy {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {}
   ngOnDestroy(): void { }
 }
 @Component({
-  selector: 'app-contactos-add',
+  selector: 'app-libros-add',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosAddComponent implements OnInit {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosAddComponent implements OnInit {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void { }
 }
 @Component({
-  selector: 'app-contactos-edit',
+  selector: 'app-libros-edit',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosEditComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosEditComponent implements OnInit, OnDestroy {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void { }
   ngOnDestroy(): void { }
 }
 @Component({
-  selector: 'app-contactos-view',
+  selector: 'app-libros-view',
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosViewComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosViewComponent implements OnInit, OnDestroy {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void { }
   ngOnDestroy(): void { }
 }
 /*
 @Component({
-  selector: 'app-contactos-list',
+  selector: 'app-libros-list',
   templateUrl: './tmpl-list.con-rutas.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosListComponent implements OnInit, OnDestroy {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosListComponent implements OnInit, OnDestroy {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
     // this.vm.list();
     this.vm.load()
@@ -78,27 +78,27 @@ export class ContactosListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void { this.vm.clear(); }
 }
 @Component({
-  selector: 'app-contactos-add',
+  selector: 'app-libros-add',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosAddComponent implements OnInit {
-  constructor(protected vm: ContactosViewModelService) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+export class LibrosAddComponent implements OnInit {
+  constructor(protected vm: LibrosViewModelService) { }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
     this.vm.add();
   }
 }
 @Component({
-  selector: 'app-contactos-edit',
+  selector: 'app-libros-edit',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosEditComponent implements OnInit, OnDestroy {
+export class LibrosEditComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(protected vm: ContactosViewModelService,
+  constructor(protected vm: LibrosViewModelService,
     protected route: ActivatedRoute, protected router: Router) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
@@ -115,15 +115,15 @@ export class ContactosEditComponent implements OnInit, OnDestroy {
   }
 }
 @Component({
-  selector: 'app-contactos-view',
+  selector: 'app-libros-view',
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./componente.component.css']
 })
-export class ContactosViewComponent implements OnInit, OnDestroy {
+export class LibrosViewComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(protected vm: ContactosViewModelService,
+  constructor(protected vm: LibrosViewModelService,
     protected route: ActivatedRoute, protected router: Router) { }
-  public get VM(): ContactosViewModelService { return this.vm; }
+  public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
@@ -141,7 +141,7 @@ export class ContactosViewComponent implements OnInit, OnDestroy {
 }
 */
 
-export const CONTACTOS_COMPONENTES = [
-  ContactosComponent, ContactosListComponent, ContactosAddComponent,
-  ContactosEditComponent, ContactosViewComponent,
+export const LIBROS_COMPONENTES = [
+  LibrosComponent, LibrosListComponent, LibrosAddComponent,
+  LibrosEditComponent, LibrosViewComponent,
 ];

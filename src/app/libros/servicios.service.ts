@@ -7,28 +7,17 @@ import { RESTDAOService, ModoCRUD } from '../base-code';
 import { NavigationService, NotificationService } from '../common-services';
 import { AuthService, AUTH_REQUIRED } from '../security';
 
-export class Contactos {
-  id: number = 0;
-  tratamiento: string | null = null;
-  nombre: string | null = null;
-  apellidos: string | null = null;
-  telefono: string | null = null;
-  email: string | null = null;
-  sexo: string | null = null;
-  nacimiento: string | null = null;
-  avatar: string | null = null;
-  conflictivo: boolean = false;
-}
+
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosDAOService extends RESTDAOService<any, any> {
+export class LibrosDAOService extends RESTDAOService<any, any> {
   constructor() {
-    super('contactos', { context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super('libros', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
   page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
     return new Observable(subscriber => {
-      const url = `${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`
+      const url = `${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=titulo`
       this.http.get<any>(url, this.option).subscribe({
         next: data => subscriber.next({ page: data.number, pages: data.totalPages, rows: data.totalElements, list: data.content }),
         error: err => subscriber.error(err)
@@ -40,16 +29,16 @@ export class ContactosDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root'
 })
-export class ContactosViewModelService {
+export class LibrosViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  // protected listURL = '/contactos';
+  // protected listURL = '/libros';
 
   constructor(protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService
+    protected dao: LibrosDAOService
     , public auth: AuthService, protected router: Router, private navigation: NavigationService
   ) { }
 
