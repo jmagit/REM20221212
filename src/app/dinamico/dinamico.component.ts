@@ -14,13 +14,13 @@ import { HomeComponent } from '../main/home/home.component';
 })
 export class DinamicoComponent {
   menu = [
-    { title: 'Libros', icon: 'fa-solid fa-book', component: LibrosComponent},
-    { title: 'Contactos', icon: 'fa-solid fa-address-book', component: ContactosComponent},
     { title: 'Home', icon: 'fa-solid fa-house', component: HomeComponent},
     { title: 'Demos', icon: 'fa-solid fa-chalkboard-user', component: DemosComponent},
     { title: 'Gráfico', icon: 'fa-solid fa-image', component: GraficoSvgComponent},
     { title: 'Calculadora', icon: 'fa-solid fa-calculator', component: CalculadoraComponent},
     { title: 'Formulario', icon: 'fa-solid fa-chalkboard-user', component: FormularioComponent},
+    { title: 'Contactos', icon: 'fa-solid fa-address-book', component: ContactosComponent},
+    { title: 'Libros', icon: 'fa-solid fa-book', component: LibrosComponent},
   ]
   active: any = this.menu[0].component
 
